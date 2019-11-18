@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
@@ -137,11 +137,18 @@ namespace SisProdutos
                         Category category = new Category();
                         int opcao;
                     menu1:
-                        Console.WriteLine("                 Bem Vindo, {0}", user.Email);
-                        Console.WriteLine("\n\n\n       1 - Cadastro de Produtos\n");
-                        Console.WriteLine("       2 - Listar Produtos");
-                        opcao = Convert.ToInt32(Console.ReadLine());
-
+                        if (user.Email == "admin@admin.com")
+                        {
+                            Console.WriteLine("                 Bem Vindo, {0}", user.Email);
+                            Console.WriteLine("\n\n\n       1 - Cadastro de Produtos\n");
+                            Console.WriteLine("       2 - Listar Produtos");
+                            opcao = Convert.ToInt32(Console.ReadLine());
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n\n\n       1 - Listar Produtos");
+                            opcao = Convert.ToInt32(Console.ReadLine());
+                        }
                         switch (opcao)
                         {
                             case 1:
